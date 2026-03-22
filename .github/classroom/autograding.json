@@ -1,0 +1,274 @@
+{
+  "tests": [
+    {
+      "name": "Character constructor: name attribute",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterConstructor::test_name_attribute -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Character constructor: level attribute",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterConstructor::test_level_attribute -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Character constructor: health attribute",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterConstructor::test_health_attribute -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Character constructor: attack_power attribute",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterConstructor::test_attack_power_attribute -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Character constructor: defense attribute",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterConstructor::test_defense_attribute -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 0
+    },
+    {
+      "name": "Character constructor: multiple instances independent",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterConstructor::test_multiple_instances_independent -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 0
+    },
+    {
+      "name": "Character.__str__: returns string",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterStr::test_returns_string -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Character.__str__: contains name",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterStr::test_contains_name -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Character.__str__: contains level",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterStr::test_contains_level -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Character.__str__: contains health",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterStr::test_contains_health -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 0
+    },
+    {
+      "name": "Character.__gt__: higher level is greater",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterComparison::test_gt_higher_level -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Character.__lt__: lower level is less",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterComparison::test_lt_lower_level -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Character.__gt__: returns bool",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterComparison::test_gt_returns_bool -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Character.__lt__: returns bool",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterComparison::test_lt_returns_bool -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 0
+    },
+    {
+      "name": "is_alive: alive with full health",
+      "setup": "",
+      "run": "pytest test_game.py::TestIsAlive::test_alive_with_full_health -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "is_alive: alive with low health",
+      "setup": "",
+      "run": "pytest test_game.py::TestIsAlive::test_alive_with_low_health -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "is_alive: dead at zero health",
+      "setup": "",
+      "run": "pytest test_game.py::TestIsAlive::test_dead_at_zero_health -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "is_alive: dead below zero health",
+      "setup": "",
+      "run": "pytest test_game.py::TestIsAlive::test_dead_below_zero_health -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 0
+    },
+    {
+      "name": "defend: health reduced after defend",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterDefend::test_health_reduced_after_defend -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "defend: returns None",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterDefend::test_defend_returns_none -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "defend: does not crash on large damage",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterDefend::test_health_not_negative_by_large_hit -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "defend: does not crash on zero damage",
+      "setup": "",
+      "run": "pytest test_game.py::TestCharacterDefend::test_zero_damage_defend -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 0
+    },
+    {
+      "name": "Subclass: Warrior is-a Character",
+      "setup": "",
+      "run": "pytest test_game.py::TestSubclassConstructors::test_warrior_is_character -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Subclass: Mage is-a Character",
+      "setup": "",
+      "run": "pytest test_game.py::TestSubclassConstructors::test_mage_is_character -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Subclass: Rogue is-a Character",
+      "setup": "",
+      "run": "pytest test_game.py::TestSubclassConstructors::test_rogue_is_character -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Subclass: Warrior is-a Serializable",
+      "setup": "",
+      "run": "pytest test_game.py::TestSubclassConstructors::test_warrior_is_serializable -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Subclass: Mage is-a Serializable",
+      "setup": "",
+      "run": "pytest test_game.py::TestSubclassConstructors::test_mage_is_serializable -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Subclass: Rogue is-a Serializable",
+      "setup": "",
+      "run": "pytest test_game.py::TestSubclassConstructors::test_rogue_is_serializable -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 0
+    },
+    {
+      "name": "Override: Warrior differs from base Character",
+      "setup": "",
+      "run": "pytest test_game.py::TestSubclassOverrides::test_warrior_defend_differs_from_base -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 2
+    },
+    {
+      "name": "Override: Mage differs from base Character",
+      "setup": "",
+      "run": "pytest test_game.py::TestSubclassOverrides::test_mage_attack_or_defend_differs_from_base -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 2
+    },
+    {
+      "name": "Override: Rogue differs from base Character",
+      "setup": "",
+      "run": "pytest test_game.py::TestSubclassOverrides::test_rogue_attack_or_defend_differs_from_base -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 2
+    },
+    {
+      "name": "Override: all three subclasses not identical",
+      "setup": "",
+      "run": "pytest test_game.py::TestSubclassOverrides::test_all_three_subclasses_not_identical -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 3
+    },
+    {
+      "name": "Serializable: save creates file",
+      "setup": "",
+      "run": "pytest test_game.py::TestSerializable::test_save_creates_file -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Serializable: save file not empty",
+      "setup": "",
+      "run": "pytest test_game.py::TestSerializable::test_save_file_not_empty -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 0
+    },
+    {
+      "name": "Serializable: load restores name",
+      "setup": "",
+      "run": "pytest test_game.py::TestSerializable::test_load_restores_name -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 2
+    },
+    {
+      "name": "Serializable: load restores health",
+      "setup": "",
+      "run": "pytest test_game.py::TestSerializable::test_load_restores_health -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 2
+    },
+    {
+      "name": "Serializable: load restores level",
+      "setup": "",
+      "run": "pytest test_game.py::TestSerializable::test_load_restores_level -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "Serializable: save and load works on Mage",
+      "setup": "",
+      "run": "pytest test_game.py::TestSerializable::test_save_load_mage -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "load_characters: returns list",
+      "setup": "",
+      "run": "pytest test_game.py::TestLoadCharacters::test_returns_list -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 0
+    },
+    {
+      "name": "load_characters: correct number of characters",
+      "setup": "",
+      "run": "pytest test_game.py::TestLoadCharacters::test_correct_number_of_characters -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "load_characters: Warrior instantiated correctly",
+      "setup": "",
+      "run": "pytest test_game.py::TestLoadCharacters::test_warrior_instantiated_correctly -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 2
+    },
+    {
+      "name": "load_characters: Mage instantiated correctly",
+      "setup": "",
+      "run": "pytest test_game.py::TestLoadCharacters::test_mage_instantiated_correctly -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 2
+    },
+    {
+      "name": "load_characters: Rogue instantiated correctly",
+      "setup": "",
+      "run": "pytest test_game.py::TestLoadCharacters::test_rogue_instantiated_correctly -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 2
+    },
+    {
+      "name": "load_characters: attributes loaded correctly",
+      "setup": "",
+      "run": "pytest test_game.py::TestLoadCharacters::test_attributes_loaded_correctly -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 1
+    },
+    {
+      "name": "load_characters: all objects are Characters",
+      "setup": "",
+      "run": "pytest test_game.py::TestLoadCharacters::test_all_objects_are_characters -v",
+      "input": "", "output": "", "comparison": "included", "timeout": 10, "points": 0
+    }
+  ]
+}
