@@ -105,6 +105,7 @@ class Character:
         self.health = health
         self.attack_power = attack_power
         self.defense = defense
+        self.attack_move = "none"
 
     def defend(self, damage):
         attack_damage = damage - ((self.defense / 100) * damage)
@@ -117,10 +118,11 @@ class Character:
 
     def __str__(self):
         return (f'Character: {self.name}\n'
-                  f'Level: {self.level}\n'
-                  f'Health: {self.health}\n'
-                  f'Attack Power: {self.attack_power}\n'
-                  f'Defense: {self.defense}\n')
+                f'Attack Move: {self.attack_move}\n'
+                f'Level: {self.level}\n'
+                f'Health: {self.health}\n'
+                f'Attack Power: {self.attack_power}\n'
+                f'Defense: {self.defense}\n')
 
     def is_alive(self):
         return self.health > 0
@@ -153,9 +155,9 @@ class Warrior(Character, Serializable):
     def attack(self, target):
         if self.level >= 15 and self.level < 35:
             attack_move = "Swing"
-        elif self.level < 65:
+        elif self.level < 65 and self.level >= 35:
             attack_move = "Barbarian Axe"
-        elif self.level < 90:
+        elif self.level < 90 and self.level >= 65:
             attack_move = "Warrior's Rage"
         elif self.level >= 90:
             attack_move = "Berserker"
@@ -168,6 +170,8 @@ class Warrior(Character, Serializable):
 
         hit_points = attack_points + (self.attack_power / 100) * attack_points
         target.defend(hit_points)
+
+        self.attack_move = attack_move
 
 
 
@@ -182,9 +186,9 @@ class Mage(Character, Serializable):
     def attack(self, target):
         if self.level >= 15 and self.level < 35:
             attack_move = "Fireball"
-        elif self.level < 65:
+        elif self.level < 65 and self.level >= 35:
             attack_move = "Lighting Blast"
-        elif self.level < 90:
+        elif self.level < 90 and self.level >= 65:
             attack_move = "Asteroid Storm"
         elif self.level >= 90:
             attack_move = "Divine Ray"
@@ -198,7 +202,7 @@ class Mage(Character, Serializable):
         hit_points = attack_points + (self.attack_power / 100) * attack_points
         target.defend(hit_points)
 
-
+        self.attack_move = attack_move
 
 
 
@@ -212,9 +216,9 @@ class Rogue(Character, Serializable):
     def attack(self, target):
         if self.level >= 15 and self.level < 35:
             attack_move = "Dagger"
-        elif self.level < 65:
+        elif self.level < 65 and self.level >= 35:
             attack_move = "Stealth Slash"
-        elif self.level < 90 :
+        elif self.level < 90 and self.level >= 65:
             attack_move = "Shadow Assault"
         elif self.level >= 90:
             attack_move = "Abyss"
@@ -228,6 +232,9 @@ class Rogue(Character, Serializable):
 
         hit_points = attack_points + (self.attack_power / 100) * attack_points
         target.defend(hit_points)
+
+        self.attack_move = attack_move
+
 
 
 def load_characters(filepath):
