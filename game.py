@@ -5,7 +5,7 @@
 # ============================================================
 
 import random
-
+import csv
 def run_battle(fighter1, fighter2):
     """
     Runs a turn-based battle between two character objects.
@@ -117,20 +117,18 @@ class Character:
 
     def __str__(self):
         return (f'Character: {self.name}\n'
-                  f'Class: {self.character_type}\n'
                   f'Level: {self.level}\n'
                   f'Health: {self.health}\n'
                   f'Attack Power: {self.attack_power}\n'
                   f'Defense: {self.defense}\n')
 
+    def is_alive(self):
+        return self.health > 0
 
-   def is_alive(self):
-       return self.health > 0
-
-   def __lt__(self, other):
+    def __lt__(self, other):
        return self.level < other.level
 
-   def __gt__(self, other):
+    def __gt__(self, other):
        return self.level > other.level
 
 
@@ -232,7 +230,36 @@ class Rogue(Character, Serializable):
         target.defend(hit_points)
 
 
+def load_characters(filepath):
+    """
+    Loads characters from a CSV file and returns them in a list.
 
+    Parameters:
+        filepath: the CSV file name
+
+    Returns:
+        A list of character objects
+    """
+    characters = []
+
+    with open(filepath, "r") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            name = row["name"]
+            char_type = row["character_type"]
+            level = int(row["level"])
+            health = float(row["health"])
+            attack_power = float(row["attack_power"])
+            defense = float(row["defense"])
+
+            if char_type == "Warrior":
+                character = Warrior(name, level, health, attack_power, defense)
+            elif char_type == "Mage":
+                character = Mage(name, level, health, attack_power, defense)
+            elif char_type == "Rogue":
+                character = Rogue(name, level, health, attack_power, defense)
+            characters.append(character)
+    return characters
 
 def main():
     """
