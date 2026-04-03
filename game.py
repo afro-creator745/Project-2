@@ -52,6 +52,200 @@ def run_battle(fighter1, fighter2):
     return winner
 
 
-# ============================================================
-# Write your classes and functions below this line.
-# ============================================================
+
+class Serializable:
+    def save(self, filepath):
+        """
+        Saves this object's data to a text file.
+
+        Parameters:
+            filepath: the file name to save to
+
+        Returns:
+            None
+        """
+        with open(filepath, "w") as file:
+            file.write(f"name={self.name}\n")
+            file.write(f"level={self.level}\n")
+            file.write(f"health={self.health}\n")
+            file.write(f"attack_power={self.attack_power}\n")
+            file.write(f"defense={self.defense}\n")
+
+    def load(self, filepath):
+        """
+        Loads this object's data from a text file.
+
+        Parameters:
+            filepath: the file name to load from
+
+        Returns:
+            None
+        """
+        with open(filepath, "r") as file:
+            for line in file:
+                key, value = line.strip().split("=")
+
+                if key == "name":
+                    self.name = value
+                elif key == "level":
+                    self.level = int(value)
+                elif key == "health":
+                    self.health = float(value)
+                elif key == "attack_power":
+                    self.attack_power = float(value)
+                elif key == "defense":
+                    self.defense = float(value)
+
+
+class Character:
+
+    def __init__(self, name, level = 1, health = 100, attack_power = 1.0, defense = 1.0):
+        self.name = name
+        self.level = level
+        self.health = health
+        self.attack_power = attack_power
+        self.defense = defense
+
+    def defend(self, damage):
+        attack_damage = damage - ((self.defense / 100) * damage)
+        self.health -= attack_damage
+
+    def attack(self, target):
+        hit_points = self.attack_power * 15
+        target.defend(hit_points)
+
+
+    def __str__(self):
+        return (f'Character: {self.name}\n'
+                  f'Class: {self.character_type}\n'
+                  f'Level: {self.level}\n'
+                  f'Health: {self.health}\n'
+                  f'Attack Power: {self.attack_power}\n'
+                  f'Defense: {self.defense}\n')
+
+
+   def is_alive(self):
+       return self.health > 0
+
+   def __lt__(self, other):
+       return self.level < other.level
+
+   def __gt__(self, other):
+       return self.level > other.level
+
+
+
+
+
+
+attack_list = {'hit': 1, "Swing": 5, 'Barbarian Axe': 15, "Warrior's Rage": 25, 'Berserker': 40,
+                       'Fireball': 15, 'Lighting Blast': 35, "Asteroid Storm": 50, "Divine Ray": 65,
+                       'Dagger': 5, 'Stealth Slash': 10, 'Shadow Assault': 20, "Abyss": 45}
+
+
+
+
+
+class Warrior(Character, Serializable):
+    def __init__(self, name, level, health, attack_power, defense):
+
+
+        super().__init__(name, level, health, attack_power, defense)
+
+    def attack(self, target):
+        if self.level >= 15 and self.level < 35:
+            attack_move = "Swing"
+        elif self.level < 65:
+            attack_move = "Barbarian Axe"
+        elif self.level < 90:
+            attack_move = "Warrior's Rage"
+        elif self.level >= 90:
+            attack_move = "Berserker"
+        else:
+            attack_move = 'hit'
+
+        for i in attack_list:
+            if i == attack_move:
+                attack_points = attack_list[i]
+
+        hit_points = attack_points + (self.attack_power / 100) * attack_points
+        target.defend(hit_points)
+
+
+
+
+
+class Mage(Character, Serializable):
+    def __init__(self, name, level, health, attack_power, defense):
+
+
+        super().__init__(name, level, health, attack_power, defense)
+
+    def attack(self, target):
+        if self.level >= 15 and self.level < 35:
+            attack_move = "Fireball"
+        elif self.level < 65:
+            attack_move = "Lighting Blast"
+        elif self.level < 90:
+            attack_move = "Asteroid Storm"
+        elif self.level >= 90:
+            attack_move = "Divine Ray"
+        else:
+            attack_move = 'hit'
+
+        for i in attack_list:
+            if i == attack_move:
+                attack_points = attack_list[i]
+
+        hit_points = attack_points + (self.attack_power / 100) * attack_points
+        target.defend(hit_points)
+
+
+
+
+
+
+
+class Rogue(Character, Serializable):
+    def __init__(self, name, level, health, attack_power, defense):
+
+        super().__init__(name, level, health, attack_power, defense)
+
+    def attack(self, target):
+        if self.level >= 15 and self.level < 35:
+            attack_move = "Dagger"
+        elif self.level < 65:
+            attack_move = "Stealth Slash"
+        elif self.level < 90 :
+            attack_move = "Shadow Assault"
+        elif self.level >= 90:
+            attack_move = "Abyss"
+        else:
+            attack_move = 'hit'
+        # set attacks moves with set values
+
+        for i in attack_list:
+            if i == attack_move:
+                attack_points = attack_list[i]
+
+        hit_points = attack_points + (self.attack_power / 100) * attack_points
+        target.defend(hit_points)
+
+
+
+
+def main():
+    """
+
+    :return:
+    """
+
+    characters = load_characters("characters.csv")
+    for character in characters:
+        print(character)
+    if len(characters) >= 2:
+        run_battle(characters[0], characters[1])
+
+
+if __name__ == "__main__":
+    main()
