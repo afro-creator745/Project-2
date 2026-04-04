@@ -291,8 +291,8 @@ def load_characters(filepath):
 
 def main():
     """
+    Main function that loads characters and runs battles
 
-    :return:
     """
     Hakeem = Warrior("Hakeem", 78, 100, 20, 65)
     Phill = Mage("Phill", 45, 100, 15, 45)
