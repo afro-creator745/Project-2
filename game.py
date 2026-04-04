@@ -108,7 +108,7 @@ class Character:
         self.attack_move = "Hasn't attacked yet"
 
     def defend(self, damage):
-        attack_damage = damage - ((self.defense / 100) * damage)
+        attack_damage = damage - ((self.defense / 150) * damage)
         self.health -= attack_damage
 
     def attack(self, target):
@@ -172,6 +172,10 @@ class Warrior(Character, Serializable):
         target.defend(hit_points)
 
         self.attack_move = attack_move
+
+    def defend(self, damage):
+        attack_damage = damage - ((self.defense / 150) * damage)
+        self.health -= attack_damage
 
 
 
