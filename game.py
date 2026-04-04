@@ -1,3 +1,16 @@
+"""
+COMP 163 - Introduction to Programming
+Project: 2 RPG Character Engine
+Name: Hakeem Cole
+GitHub Username: afro-creator745
+Date: 4/3/2026
+Description: A use of classes, functions, and methods to create characters with different stats and
+classes battle to the death.
+"""
+
+
+
+
 # ============================================================
 # game.py — Project 2: RPG Character Engine
 # DO NOT modify the run_battle() function below.
