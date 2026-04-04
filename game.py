@@ -117,6 +117,8 @@ class Character:
         target.defend(hit_points)  #base method for attack though every class as their own attack method
 
 
+
+# Methods under here are pretty self explanatory
     def __str__(self):
         return (f'\nCharacter: {self.name}\n'
                 f'Attack Move: {self.attack_move}\n'
@@ -138,7 +140,7 @@ class Character:
 
 
 
-
+# dictionary that has the set values for the different attack possibilities
 attack_list = {'Warrior hit': 5,'Mage hit': 1, 'Rogue hit': 3, "Swing": 10, 'Barbarian Axe': 20, "Warrior's Rage": 30, 'Berserker': 45,
                        'Fireball': 15, 'Lighting Blast': 35, "Asteroid Storm": 50, "Divine Ray": 65,
                        'Dagger': 5, 'Stealth Slash': 10, 'Shadow Assault': 20, "Abyss": 45}
@@ -153,6 +155,7 @@ class Warrior(Character, Serializable):
 
         super().__init__(name, level, health, attack_power, defense)
 
+#Warrior class attack options based on level
     def attack(self, target):
         if self.level >= 15 and self.level < 35:
             attack_move = "Swing"
@@ -165,15 +168,19 @@ class Warrior(Character, Serializable):
         else:
             attack_move = 'Warrior hit'
 
-        for i in attack_list:
+        for i in attack_list:   #runs to the dictionary to find what attack is being used and itc corresponding value
             if i == attack_move:
                 attack_points = attack_list[i]
 
+         #Adds more attack power by making attack power stat a percentage then multiplying to
+        # the attack points and then added it to attack points again to get total
         hit_points = attack_points + (self.attack_power / 100) * attack_points
         target.defend(hit_points)
 
+        #tracks the attack move used
         self.attack_move = attack_move
 
+        #Warrior class defend boost the percentage made will be higher sinces it's divided by 100 and not 150
     def defend(self, damage):
         attack_damage = damage - ((self.defense / 100) * damage)
         self.health -= attack_damage
@@ -188,6 +195,7 @@ class Mage(Character, Serializable):
 
         super().__init__(name, level, health, attack_power, defense)
 
+    # Mage class attack options based on level
     def attack(self, target):
         if self.level >= 15 and self.level < 35:
             attack_move = "Fireball"
@@ -201,12 +209,16 @@ class Mage(Character, Serializable):
             attack_move = 'Mage hit'
 
         for i in attack_list:
-            if i == attack_move:
+            if i == attack_move:    #runs to the dictionary to find what attack is being used and itc corresponding value
                 attack_points = attack_list[i]
 
+
+        # Adds more attack power by making attack power stat a percentage then multiplying to
+        # the attack points and then added it to attack points again to get total
         hit_points = attack_points + (self.attack_power / 100) * attack_points
         target.defend(hit_points)
 
+        # tracks the attack move used
         self.attack_move = attack_move
 
 
@@ -218,6 +230,7 @@ class Rogue(Character, Serializable):
 
         super().__init__(name, level, health, attack_power, defense)
 
+    # Rouge class attack options based on level
     def attack(self, target):
         if self.level >= 15 and self.level < 35:
             attack_move = "Dagger"
@@ -232,12 +245,15 @@ class Rogue(Character, Serializable):
         # set attacks moves with set values
 
         for i in attack_list:
-            if i == attack_move:
+            if i == attack_move:  #runs to the dictionary to find what attack is being used and itc corresponding value
                 attack_points = attack_list[i]
 
+        # Adds more attack power by making attack power stat a percentage then multiplying to
+        # the attack points and then added it to attack points again to get total
         hit_points = attack_points + (self.attack_power / 100) * attack_points
         target.defend(hit_points)
 
+        # tracks the attack move used
         self.attack_move = attack_move
 
 
