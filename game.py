@@ -105,7 +105,7 @@ class Character:
         self.health = health
         self.attack_power = attack_power
         self.defense = defense
-        self.attack_move = "none"
+        self.attack_move = "Hasn't attacked yet"
 
     def defend(self, damage):
         attack_damage = damage - ((self.defense / 100) * damage)
@@ -117,7 +117,7 @@ class Character:
 
 
     def __str__(self):
-        return (f'Character: {self.name}\n'
+        return (f'\nCharacter: {self.name}\n'
                 f'Attack Move: {self.attack_move}\n'
                 f'Level: {self.level}\n'
                 f'Health: {self.health}\n'
@@ -138,7 +138,7 @@ class Character:
 
 
 
-attack_list = {'hit': 1, "Swing": 5, 'Barbarian Axe': 15, "Warrior's Rage": 25, 'Berserker': 40,
+attack_list = {'Warrior hit': 5,'Mage hit': 1, 'Rogue hit': 3 "Swing": 10, 'Barbarian Axe': 20, "Warrior's Rage": 30, 'Berserker': 45,
                        'Fireball': 15, 'Lighting Blast': 35, "Asteroid Storm": 50, "Divine Ray": 65,
                        'Dagger': 5, 'Stealth Slash': 10, 'Shadow Assault': 20, "Abyss": 45}
 
@@ -162,7 +162,7 @@ class Warrior(Character, Serializable):
         elif self.level >= 90:
             attack_move = "Berserker"
         else:
-            attack_move = 'hit'
+            attack_move = 'Warrior hit'
 
         for i in attack_list:
             if i == attack_move:
@@ -193,7 +193,7 @@ class Mage(Character, Serializable):
         elif self.level >= 90:
             attack_move = "Divine Ray"
         else:
-            attack_move = 'hit'
+            attack_move = 'Mage hit'
 
         for i in attack_list:
             if i == attack_move:
@@ -223,7 +223,7 @@ class Rogue(Character, Serializable):
         elif self.level >= 90:
             attack_move = "Abyss"
         else:
-            attack_move = 'hit'
+            attack_move = 'Rogue hit'
         # set attacks moves with set values
 
         for i in attack_list:
@@ -273,12 +273,17 @@ def main():
 
     :return:
     """
+    Hakeem = Warrior("Hakeem", 78, 100, 20, 65)
+    Phill = Mage("Phill", 45, 100, 15, 45)
+
+    run_battle(Phill, Hakeem)
 
     characters = load_characters("characters.csv")
     for character in characters:
         print(character)
-    if len(characters) >= 2:
-        run_battle(characters[0], characters[1])
+
+    run_battle(characters[8], characters[1])
+
 
 
 if __name__ == "__main__":
