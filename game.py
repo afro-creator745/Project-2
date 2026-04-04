@@ -138,7 +138,7 @@ class Character:
 
 
 
-attack_list = {'Warrior hit': 5,'Mage hit': 1, 'Rogue hit': 3 "Swing": 10, 'Barbarian Axe': 20, "Warrior's Rage": 30, 'Berserker': 45,
+attack_list = {'Warrior hit': 5,'Mage hit': 1, 'Rogue hit': 3, "Swing": 10, 'Barbarian Axe': 20, "Warrior's Rage": 30, 'Berserker': 45,
                        'Fireball': 15, 'Lighting Blast': 35, "Asteroid Storm": 50, "Divine Ray": 65,
                        'Dagger': 5, 'Stealth Slash': 10, 'Shadow Assault': 20, "Abyss": 45}
 
