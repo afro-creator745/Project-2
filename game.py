@@ -101,7 +101,7 @@ class Character:
 
     def __init__(self, name, level = 1, health = 100, attack_power = 1.0, defense = 1.0):
         self.name = name
-        self.level = level
+        self.level = level       #creating thr stats of the character
         self.health = health
         self.attack_power = attack_power
         self.defense = defense
@@ -109,11 +109,12 @@ class Character:
 
     def defend(self, damage):
         attack_damage = damage - ((self.defense / 150) * damage)
-        self.health -= attack_damage
+        self.health -= attack_damage     #damage is delt by making the defense stat a percentage
+                                        # then multiple it to damage and subtract it from the original damag
 
     def attack(self, target):
         hit_points = self.attack_power * 15
-        target.defend(hit_points)
+        target.defend(hit_points)  #base method for attack though every class as their own attack method
 
 
     def __str__(self):
