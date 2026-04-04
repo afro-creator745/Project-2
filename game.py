@@ -174,7 +174,7 @@ class Warrior(Character, Serializable):
         self.attack_move = attack_move
 
     def defend(self, damage):
-        attack_damage = damage - ((self.defense / 150) * damage)
+        attack_damage = damage - ((self.defense / 100) * damage)
         self.health -= attack_damage
 
 
